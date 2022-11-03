@@ -1,0 +1,43 @@
+<resources>
+
+    <style name="Theme.TestApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:titleTextColor">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>x
+        <item name="postSplashScreenTheme">@style/Theme.TestApp</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">@font/sans_serif_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextStyle3">
+        <item name="android:fontFamily">@font/sans_serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextStyle2">
+        <item name="android:fontFamily">@font/sans_serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/st</item>
+    </style>
+
+
+</resources>
