@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 
-class XAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CurrencyConversionListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //
 //    private val callback = object : DiffUtil.ItemCallback<ArticleModel>() {

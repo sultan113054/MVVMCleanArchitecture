@@ -1,7 +1,8 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
 import com.mvvmcleanarchitecture.currencyconverter.domain.usecase.GetCurrenciesUseCase
-import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.XViewModelFactory
+import com.mvvmcleanarchitecture.currencyconverter.domain.usecase.GetLatestRatesUseCase
+import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.CurrencyConversionViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,11 +14,12 @@ import javax.inject.Singleton
 class FactoryModule {
     @Singleton
     @Provides
-    fun provideCarsViewModelFactory(
-        getXUseCase: GetCurrenciesUseCase
-    ): XViewModelFactory {
-        return XViewModelFactory(
-            getXUseCase
+    fun provideCurrencyConversionViewModelFactory(
+        getCurrenciesUseCase: GetCurrenciesUseCase,
+        getLatestRatesUseCase: GetLatestRatesUseCase
+    ): CurrencyConversionViewModelFactory {
+        return CurrencyConversionViewModelFactory(
+            getCurrenciesUseCase, getLatestRatesUseCase
         )
     }
 

@@ -48,7 +48,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideCarsAPIService(retrofit: Retrofit): CurrencyAPIService {
+    fun provideCurrencyAPIService(retrofit: Retrofit): CurrencyAPIService {
         return retrofit.create(CurrencyAPIService::class.java)
     }
 

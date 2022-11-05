@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class XViewModel(
+class CurrencyConversionViewModel(
     private val getCurrenciesUseCase: GetCurrenciesUseCase,
     private val getLatestRatesUseCase: GetLatestRatesUseCase
 ) : ViewModel() {

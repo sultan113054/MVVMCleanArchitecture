@@ -1,6 +1,6 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
-import com.mvvmcleanarchitecture.currencyconverter.presentation.adapter.XAdapter
+import com.mvvmcleanarchitecture.currencyconverter.presentation.adapter.CurrencyConversionListAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class AdapterModule {
     @Singleton
     @Provides
-    fun provideXAdapter(): XAdapter {
-        return XAdapter()
+    fun provideCurrencyConversionListAdapter(): CurrencyConversionListAdapter {
+        return CurrencyConversionListAdapter()
     }
 }

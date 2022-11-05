@@ -11,31 +11,30 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.mvvmcleanarchitecture.currencyconverter.R
 import com.mvvmcleanarchitecture.currencyconverter.core.exception.Failure
 import com.mvvmcleanarchitecture.currencyconverter.databinding.FragmentXListBinding
-import com.mvvmcleanarchitecture.currencyconverter.presentation.adapter.XAdapter
+import com.mvvmcleanarchitecture.currencyconverter.presentation.adapter.CurrencyConversionListAdapter
 import com.mvvmcleanarchitecture.currencyconverter.presentation.util.ArticlesFailure
 import com.mvvmcleanarchitecture.currencyconverter.presentation.util.UIState
-import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.XViewModel
-import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.XViewModelFactory
+import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.CurrencyConversionViewModel
+import com.mvvmcleanarchitecture.currencyconverter.presentation.viewmodel.CurrencyConversionViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class XListFragment : Fragment() {
+class CurrencyConversionListFragment : Fragment() {
 
     private lateinit var binding: FragmentXListBinding
-    private lateinit var xViewModel: XViewModel
+    private lateinit var xViewModel: CurrencyConversionViewModel
 
     @Inject
-    lateinit var xAdapter: XAdapter
+    lateinit var xAdapter: CurrencyConversionListAdapter
 
     @Inject
-    lateinit var factory: XViewModelFactory
+    lateinit var factory: CurrencyConversionViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +51,7 @@ class XListFragment : Fragment() {
         initRecyclerView()
 
         xViewModel =
-            ViewModelProvider(requireActivity(), factory).get(XViewModel::class.java)
+            ViewModelProvider(requireActivity(), factory).get(CurrencyConversionViewModel::class.java)
 
         lifecycleScope.launch() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -86,8 +85,8 @@ class XListFragment : Fragment() {
 
     private fun initRecyclerView() {
         binding.rvProducts.apply {
-            layoutManager = LinearLayoutManager(activity)
-            this.adapter = xAdapter
+//            layoutManager = LinearLayoutManager(activity)
+//            this.adapter = xAdapter
         }
 
     }
