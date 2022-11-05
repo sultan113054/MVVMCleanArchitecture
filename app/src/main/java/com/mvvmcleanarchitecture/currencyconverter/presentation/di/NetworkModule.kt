@@ -1,4 +1,5 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
+
 import com.mvvmcleanarchitecture.currencyconverter.BuildConfig
 import com.mvvmcleanarchitecture.currencyconverter.data.api.CurrencyAPIService
 import com.mvvmcleanarchitecture.currencyconverter.data.util.ResultCallAdapterFactory
@@ -31,6 +32,14 @@ class NetworkModule {
                         .connectTimeout(30, TimeUnit.SECONDS)
                         .readTimeout(30, TimeUnit.SECONDS)
                         .writeTimeout(30, TimeUnit.SECONDS)
+                }.addInterceptor { chain ->
+                    val url = chain
+                        .request()
+                        .url
+                        .newBuilder()
+                        .addQueryParameter("key", BuildConfig.APP_ID)
+                        .build()
+                    chain.proceed(chain.request().newBuilder().url(url).build())
                 }.build()
             )
 

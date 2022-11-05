@@ -1,9 +1,11 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
-import android.content.Context
 import com.mvvmcleanarchitecture.currencyconverter.data.api.CurrencyAPIService
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.XRemoteDataSource
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.XRemoteDataSourceImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.LatestRateRepositoryImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.remote.CurrencyRemoteDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.remote.LatestRateRemoteDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.remote.CurrencyRemoteDataSourceImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.remote.LatestRateRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,17 +18,19 @@ class RemoteDataModule {
 
     @Singleton
     @Provides
-    fun provideCarsRemoteDataSource(
-        carsAPIService: CurrencyAPIService
-    ): XRemoteDataSource {
-        return XRemoteDataSourceImpl(carsAPIService)
+    fun provideCurrencyRemoteDataSource(
+        currencyAPIService: CurrencyAPIService
+    ): CurrencyRemoteDataSource {
+        return CurrencyRemoteDataSourceImpl(currencyAPIService)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideApiCarsMapper(context: Context): ApiArticleMapper {
-//       // return ApiArticleMapper(context)
-//    }
+    @Singleton
+    @Provides
+    fun provideLatestRateRemoteDataSource(
+        currencyAPIService: CurrencyAPIService
+    ): LatestRateRemoteDataSource {
+        return LatestRateRemoteDataSourceImpl(currencyAPIService)
+    }
 
 }
 

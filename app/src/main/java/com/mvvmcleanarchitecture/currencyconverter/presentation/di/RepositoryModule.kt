@@ -1,10 +1,14 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
 import com.mvvmcleanarchitecture.currencyconverter.core.platform.NetworkHandler
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.XRepositoryImpl
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.XLocalDataSource
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.XRemoteDataSource
-import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyConversionRepository
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.CurrencyRepositoryImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.LatestRateRepositoryImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.local.CurrencyLocalDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.local.LatestRateLocalDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.remote.CurrencyRemoteDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.remote.LatestRateRemoteDataSource
+import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyRepository
+import com.mvvmcleanarchitecture.currencyconverter.domain.repository.LatestRateRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,14 +20,27 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Singleton
     @Provides
-    fun provideCarsRepository(
-        carsRemoteDataSource: XRemoteDataSource, xLocalDataSource: XLocalDataSource,
+    fun provideCurrencyRepository(
+        currencyRemoteDataSource: CurrencyRemoteDataSource,
+        currencyLocalDataSource: CurrencyLocalDataSource,
         networkHandler: NetworkHandler,
-    ): CurrencyConversionRepository {
-        return XRepositoryImpl(
-            carsRemoteDataSource,
-            xLocalDataSource,
-           // apiCarsMapper,
+    ): CurrencyRepository {
+        return CurrencyRepositoryImpl(
+            currencyRemoteDataSource,
+            currencyLocalDataSource,
+            networkHandler
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideLatestRateRepository(
+        latestRateRemoteDataSource: LatestRateRemoteDataSource,
+        latestRateLocalDataSource: LatestRateLocalDataSource, networkHandler: NetworkHandler,
+    ): LatestRateRepository {
+        return LatestRateRepositoryImpl(
+            latestRateRemoteDataSource,
+            latestRateLocalDataSource,
             networkHandler
         )
     }

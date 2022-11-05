@@ -1,10 +1,9 @@
 package com.mvvmcleanarchitecture.currencyconverter.domain.usecase
 
 import com.google.common.truth.Truth
-import com.mvvmcleanarchitecture.currencyconverter.core.Fakes
 import com.mvvmcleanarchitecture.currencyconverter.core.exception.Failure
 import com.mvvmcleanarchitecture.currencyconverter.core.functional.Either
-import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyConversionRepository
+import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyRepository
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -20,7 +19,7 @@ class GetXUseCaseTest {
     private lateinit var testSubject: GetCurrenciesUseCase
 
     @Mock
-    private lateinit var mockCarsRepository: CurrencyConversionRepository
+    private lateinit var mockCarsRepository: CurrencyRepository
 
     @Before
     fun setup() {

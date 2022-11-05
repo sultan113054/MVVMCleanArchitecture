@@ -1,15 +1,17 @@
 package com.mvvmcleanarchitecture.currencyconverter.data.api
-import com.mvvmcleanarchitecture.currencyconverter.data.model.articles.model.LatestRateApiResponse
-import com.mvvmcleanarchitecture.currencyconverter.data.model.articles.model.CurrenciesApiResponse
+
+import com.google.gson.JsonObject
+import com.mvvmcleanarchitecture.currencyconverter.data.model.LatestRateResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface CurrencyAPIService {
 
-    @GET("latest")
-    suspend fun getLatestExchangeRates(): Response<LatestRateApiResponse>
+    @GET("latest.json")
+    suspend fun getLatestRatesByBase(@Query("base") base: String): Response<LatestRateResponse>
 
     @GET("currencies.json")
-    suspend fun getCurrencies(): Response<CurrenciesApiResponse>
+    suspend fun getCurrencies(): Response<JsonObject>
 
 }

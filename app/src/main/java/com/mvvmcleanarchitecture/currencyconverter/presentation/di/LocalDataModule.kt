@@ -1,8 +1,11 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
-import com.mvvmcleanarchitecture.currencyconverter.data.db.XDAO
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.XLocalDataSource
-import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.XLocalDataSourceImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.db.dao.CurrencyDAO
+import com.mvvmcleanarchitecture.currencyconverter.data.db.dao.LatestRateDAO
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.local.CurrencyLocalDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSource.local.LatestRateLocalDataSource
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.local.CurrencyLocalDataSourceImpl
+import com.mvvmcleanarchitecture.currencyconverter.data.repository.dataSourceImpl.local.LatestRateLocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,8 +17,14 @@ import javax.inject.Singleton
 class LocalDataModule {
     @Singleton
     @Provides
-    fun provideLocalDataSource(articleDAO: XDAO): XLocalDataSource {
-        return XLocalDataSourceImpl(articleDAO)
+    fun provideCurrencyLocalDataSource(currencyDAO: CurrencyDAO): CurrencyLocalDataSource {
+        return CurrencyLocalDataSourceImpl(currencyDAO)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLatestRateLocalDataSource(latestRateDAO: LatestRateDAO): LatestRateLocalDataSource {
+        return LatestRateLocalDataSourceImpl(latestRateDAO)
     }
 
 }

@@ -1,8 +1,9 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
 import android.content.Context
-import com.mvvmcleanarchitecture.currencyconverter.data.db.XDAO
-import com.mvvmcleanarchitecture.currencyconverter.data.db.AppDatabase
+import com.mvvmcleanarchitecture.currencyconverter.data.db.dao.CurrencyDAO
+import com.mvvmcleanarchitecture.currencyconverter.data.db.CurrencyDatabase
+import com.mvvmcleanarchitecture.currencyconverter.data.db.dao.LatestRateDAO
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,15 +15,20 @@ import javax.inject.Singleton
 class DataBaseModule {
     @Singleton
     @Provides
-    fun provideXDatabase(context: Context): AppDatabase {
-        return AppDatabase.getInstance(context)
+    fun provideCurrencyDatabase(context: Context): CurrencyDatabase {
+        return CurrencyDatabase.getInstance(context)
     }
 
     @Singleton
     @Provides
-    fun provideArticleDao(articleDatabase: AppDatabase): XDAO {
-        return articleDatabase.getArticleDAO()
+    fun provideCurrencyDao(currencyDatabase: CurrencyDatabase): CurrencyDAO {
+        return currencyDatabase.getCurrencyDAO()
     }
 
+    @Singleton
+    @Provides
+    fun provideLatestRateDao(articleDatabase: CurrencyDatabase): LatestRateDAO {
+        return articleDatabase.getLatestRateDAO()
+    }
 
 }

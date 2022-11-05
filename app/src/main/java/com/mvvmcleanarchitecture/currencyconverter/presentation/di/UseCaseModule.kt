@@ -1,7 +1,9 @@
 package com.mvvmcleanarchitecture.currencyconverter.presentation.di
 
-import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyConversionRepository
+import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyRepository
+import com.mvvmcleanarchitecture.currencyconverter.domain.repository.LatestRateRepository
 import com.mvvmcleanarchitecture.currencyconverter.domain.usecase.GetCurrenciesUseCase
+import com.mvvmcleanarchitecture.currencyconverter.domain.usecase.GetLatestRatesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,10 +16,18 @@ class UseCaseModule {
 
     @Singleton
     @Provides
-    fun provideCarssUseCase(
-        xRepository: CurrencyConversionRepository
+    fun provideCurrenciesUseCase(
+        currencyRepository: CurrencyRepository
     ): GetCurrenciesUseCase {
-        return GetCurrenciesUseCase(xRepository)
+        return GetCurrenciesUseCase(currencyRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLatestRatesUseCase(
+        latestRateRepository: LatestRateRepository
+    ): GetLatestRatesUseCase {
+        return GetLatestRatesUseCase(latestRateRepository)
     }
 }
 
