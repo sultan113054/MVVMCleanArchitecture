@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CurrencyDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCurrencies(currencyEntity: CurrencyEntity)
+    fun insertCurrencies(currencyEntity: CurrencyEntity):Flow<CurrencyEntity>
 
     @Query("SELECT * FROM currency Limit 1")
     fun getCurrencies(): Flow<CurrencyEntity>

@@ -1,4 +1,4 @@
-package com.mvvmcleanarchitecture.currencyconverter.data.di
+package com.mvvmcleanarchitecture.currencyconverter.domain.di
 
 import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyRepository
 import com.mvvmcleanarchitecture.currencyconverter.domain.repository.LatestRateRepository

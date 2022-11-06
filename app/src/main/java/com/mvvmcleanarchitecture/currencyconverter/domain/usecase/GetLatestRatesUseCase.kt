@@ -4,7 +4,6 @@ import com.mvvmcleanarchitecture.currencyconverter.core.exception.Failure
 import com.mvvmcleanarchitecture.currencyconverter.core.functional.Either
 import com.mvvmcleanarchitecture.currencyconverter.core.interactor.BaseUseCase
 import com.mvvmcleanarchitecture.currencyconverter.data.model.LatestRateEntity
-import com.mvvmcleanarchitecture.currencyconverter.domain.repository.CurrencyRepository
 import com.mvvmcleanarchitecture.currencyconverter.domain.repository.LatestRateRepository
 import kotlinx.coroutines.flow.Flow
 

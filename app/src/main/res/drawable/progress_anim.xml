@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape
-            android:shape="rectangle">
+        <shape android:shape="rectangle">
             <size
                 android:width="200dp"
-                android:height="200dp"/>
-            <solid
-                android:color="#00FFFFFF"/>
+                android:height="200dp" />
+            <solid android:color="#00FFFFFF" />
         </shape>
     </item>
 
@@ -15,6 +13,6 @@
         <animated-rotate
             android:drawable="@drawable/loading_image"
             android:pivotX="50%"
-            android:pivotY="50%"/>
+            android:pivotY="50%" />
     </item>
 </layer-list>

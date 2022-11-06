@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.map
 class CurrencyLocalDataSourceImpl(
     private val currencyDAO: CurrencyDAO,
 ) : CurrencyLocalDataSource {
-    override suspend fun saveCurrencies(currencyEntity: CurrencyEntity) {
-        currencyDAO.insertCurrencies(currencyEntity)
+    override suspend fun saveCurrencies(currencyEntity: CurrencyEntity): Flow<CurrencyEntity> {
+        return currencyDAO.insertCurrencies(currencyEntity)
     }
 
     override suspend fun getSavedCurrencies(): Flow<CurrencyEntity> {

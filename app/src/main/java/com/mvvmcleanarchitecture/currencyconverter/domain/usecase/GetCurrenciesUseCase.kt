@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.Flow
 class GetCurrenciesUseCase(private val currencyRepository: CurrencyRepository) :
     BaseUseCase<Boolean, Flow<Either<Failure, CurrencyEntity>>> {
 
-    override suspend fun invoke(value: Boolean): Flow<Either<Failure, CurrencyEntity>> {
-        return currencyRepository.getCurrencies()
+    override suspend fun invoke(forceUpdate: Boolean): Flow<Either<Failure, CurrencyEntity>> {
+        return currencyRepository.getCurrencies(forceUpdate)
     }
 
 }
