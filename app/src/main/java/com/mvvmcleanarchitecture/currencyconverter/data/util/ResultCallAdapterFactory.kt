@@ -1,5 +1,8 @@
 package com.mvvmcleanarchitecture.currencyconverter.data.util
 
+import com.google.gson.JsonObject
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
@@ -30,3 +33,4 @@ class ResultCallAdapterFactory : CallAdapter.Factory() {
         }
     }
 }
+

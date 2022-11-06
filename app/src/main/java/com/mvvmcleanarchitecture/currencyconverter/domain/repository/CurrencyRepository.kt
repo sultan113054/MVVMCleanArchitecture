@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface CurrencyRepository {
-    suspend fun getCurrencies(): Flow<Either<Failure, CurrencyEntity>>
+    suspend fun getCurrencies(updateFromRemote: Boolean): Flow<Either<Failure, CurrencyEntity>>
 }

@@ -1,4 +1,4 @@
-package com.mvvmcleanarchitecture.currencyconverter.presentation.di
+package com.mvvmcleanarchitecture.currencyconverter.data.di
 
 import android.content.Context
 import com.mvvmcleanarchitecture.currencyconverter.data.db.dao.CurrencyDAO
